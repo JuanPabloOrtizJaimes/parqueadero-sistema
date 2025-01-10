@@ -1,0 +1,1114 @@
+{
+	"info": {
+		"_postman_id": "701ff3f4-33cb-4e02-95f3-30fa85ca7c3f",
+		"name": "Parqueadero",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40933319"
+	},
+	"item": [
+		{
+			"name": "Autenticacion",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": []
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"admin@mail.com\",\n  \"password\": \"admin\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/api/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registrar Socio - Rol Admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": []
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {% response 'body', 'req_b8e797e41fe84d80b56e57f67dc93b4d', 'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nombre\": \"Stiven\",\n  \"email\": \"stiven@gmail.com\",\n  \"password\": \"123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/api/v1/auth/registro",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"registro"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Parqueadero - Rol Admin",
+			"item": [
+				{
+					"name": "Crear parqueadero",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": []
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {% response 'body', 'req_b8e797e41fe84d80b56e57f67dc93b4d', 'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nombre\": \"Nono Daniel\",\n\t\"capacidad\": 5,\n\t\"costoPorHora\": 9000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/api/v1/parqueadero",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"v1",
+								"parqueadero"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener parqueaderos",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": []
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {% response 'body', 'req_b8e797e41fe84d80b56e57f67dc93b4d', 'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8088/api/v1/parqueadero",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"v1",
+								"parqueadero"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Vincular socio",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": []
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {% response 'body', 'req_b8e797e41fe84d80b56e57f67dc93b4d', 'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8088/api/v1/parqueadero/2/vincular-socio?email=ciro@gmail.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"v1",
+								"parqueadero",
+								"2",
+								"vincular-socio"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "ciro@gmail.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener parqueadero",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": []
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {% response 'body', 'req_b8e797e41fe84d80b56e57f67dc93b4d', 'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8088/api/v1/parqueadero/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"v1",
+								"parqueadero",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar datos parqueadero",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": []
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {% response 'body', 'req_b8e797e41fe84d80b56e57f67dc93b4d', 'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nombre\": \"Nona Pepa S.A\",\n\t\"capacidad\": 35,\n\t\"costoPorHora\": 900.0,\n\t\"email\": \"camilo@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/api/v1/parqueadero/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"v1",
+								"parqueadero",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar parqueadero",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": []
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {% response 'body', 'req_b8e797e41fe84d80b56e57f67dc93b4d', 'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8088/api/v1/parqueadero/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"v1",
+								"parqueadero",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener vehiculos parqueadero",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": []
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {% response 'body', 'req_b8e797e41fe84d80b56e57f67dc93b4d', 'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8088/api/v1/parqueadero/1/vehiculos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"v1",
+								"parqueadero",
+								"1",
+								"vehiculos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vehiculo - Rol Socio",
+			"item": [
+				{
+					"name": "Registrar vehiculo",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": []
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {% response 'body', 'req_b8e797e41fe84d80b56e57f67dc93b4d', 'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"placa\": \"ims29g\",\n\t\"idParqueadero\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/api/v1/vehiculo/entrada",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"v1",
+								"vehiculo",
+								"entrada"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registrar salida de vehiculo",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": []
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {% response 'body', 'req_b8e797e41fe84d80b56e57f67dc93b4d', 'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"placa\": \"iMs37g\",\n\t\"idParqueadero\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/api/v1/vehiculo/salida",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"v1",
+								"vehiculo",
+								"salida"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener parqueaderos asociados",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": []
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {% response 'body', 'req_b8e797e41fe84d80b56e57f67dc93b4d', 'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8088/api/v1/vehiculo/parqueaderosAsociados",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"v1",
+								"vehiculo",
+								"parqueaderosAsociados"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener vehiculos de parqueadero asociado",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": []
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {% response 'body', 'req_b8e797e41fe84d80b56e57f67dc93b4d', 'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8088/api/v1/vehiculo/parqueadero/2/asociados",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"v1",
+								"vehiculo",
+								"parqueadero",
+								"2",
+								"asociados"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Historial",
+			"item": [
+				{
+					"name": "Obtener vehiculos con mas registros en parqueaderos",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": []
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {% response 'body', 'req_b8e797e41fe84d80b56e57f67dc93b4d', 'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8088/api/v1/historial/top-vehiculos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"v1",
+								"historial",
+								"top-vehiculos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener vehiculos con mas registros en un parqueadero",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": []
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {% response 'body', 'req_b8e797e41fe84d80b56e57f67dc93b4d', 'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8088/api/v1/historial/top-vehiculos/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"v1",
+								"historial",
+								"top-vehiculos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener vehiculos de primer ingreso en un parqueadero",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": []
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {% response 'body', 'req_b8e797e41fe84d80b56e57f67dc93b4d', 'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8088/api/v1/historial/vehiculos-primer-ingreso/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"v1",
+								"historial",
+								"vehiculos-primer-ingreso",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener top 3 de socios de la semana - Rol Admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": []
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {% response 'body', 'req_b8e797e41fe84d80b56e57f67dc93b4d', 'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8088/api/v1/historial/top3-socios-semana",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"v1",
+								"historial",
+								"top3-socios-semana"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener top 3 de los parqueaderos de la semana - Rol Admin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": []
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {% response 'body', 'req_b8e797e41fe84d80b56e57f67dc93b4d', 'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8088/api/v1/historial/top3-parqueaderos-ganancia-semana",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"v1",
+								"historial",
+								"top3-parqueaderos-ganancia-semana"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener ganancias del dia de un parqueadero - Rol Socio",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": []
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {% response 'body', 'req_b8e797e41fe84d80b56e57f67dc93b4d', 'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8088/api/v1/historial/parqueadero-ganancias-hoy/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"v1",
+								"historial",
+								"parqueadero-ganancias-hoy",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener ganancias de la semana de un parqueadero - Rol Socio",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": []
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {% response 'body', 'req_b8e797e41fe84d80b56e57f67dc93b4d', 'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8088/api/v1/historial/parqueadero-ganancias-semana/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"v1",
+								"historial",
+								"parqueadero-ganancias-semana",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener ganancias del mes de un parqueadero - Rol Socio",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": []
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {% response 'body', 'req_b8e797e41fe84d80b56e57f67dc93b4d', 'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8088/api/v1/historial/parqueadero-ganancias-mes/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"v1",
+								"historial",
+								"parqueadero-ganancias-mes",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener ganancias del anio de un parqueadero - Rol Socio",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": []
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"followRedirects": true,
+						"disableUrlEncoding": false,
+						"disableCookies": false
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {% response 'body', 'req_b8e797e41fe84d80b56e57f67dc93b4d', 'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8088/api/v1/historial/parqueadero-ganancias-anio/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"api",
+								"v1",
+								"historial",
+								"parqueadero-ganancias-anio",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "jwt_token",
+			"value": "tu_token_aqui"
+		}
+	]
+}
